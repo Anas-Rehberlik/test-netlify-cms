@@ -1,17 +1,17 @@
 backend:
   name: git-gateway
-  branch: main # or 'master', depending on your repo
+  branch: main  # Replace with your default branch name
 
-media_folder: "assets/images"
-public_folder: "/images"
+media_folder: "assets/images"  # Path to images in the repository
+public_folder: "/assets/images"  # Path to images in the published site
 
 collections:
-  - name: "blog"
-    label: "Blog"
-    folder: "content/blog"
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Body", name: "body", widget: "text" }
-      - { label: "Date", name: "date", widget: "datetime" }
+  - name: "pages"
+    label: "Pages"
+    files:
+      - label: "Home Page"
+        name: "home"
+        file: "index.html"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
